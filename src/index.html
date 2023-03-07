@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <title>Github repo searcher</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <a href="#" class="header__logo">
+          <!-- <i class="fa-brands fa-github font-awesome"></i> -->
+          <i class="fa-brands fa-square-github logo-awesome"></i>
+        </a>
+        <h1 class="header__title">Github repo searcher</h1>
+      </header>
+      <main class="main">
+        <div class="search">
+          <form class="search__form" action="">
+            <div class="search__field">
+              <input
+                class="search__input"
+                type="text"
+                name="name"
+                placeholder="Прыгнуть к репозиторию..."
+                autocomplete="off"
+                required
+              />
+              <span class="slash">/</span>
+            </div>
+            <button class="search__btn" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              Поиск
+            </button>
+          </form>
+        </div>
+        <div class="repositories">
+          <ul class="repo-list"></ul>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script type="module" src="index.js"></script>
+</html>

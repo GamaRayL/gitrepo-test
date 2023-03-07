@@ -1,0 +1,29 @@
+{
+  "name": "gitrepo-test",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve --env develop"
+  },
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "html-loader": "^3.1.0",
+    "mini-css-extract-plugin": "^2.5.2",
+    "sass": "^1.49.0",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "normalize.css": "^8.0.1",
+    "uuid": "^9.0.0"
+  },
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "��#\u0000 \u0000g\u0000i\u0000t\u0000r\u0000e\u0000p\u0000o\u0000-\u0000t\u0000e\u0000s\u0000t\u0000\r\u0000 \u0000"
+}
