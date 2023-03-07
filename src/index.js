@@ -7,6 +7,7 @@ window.onload = function () {
   const form = getSlctr('.search__form');
   const inputField = getSlctr('.search__input');
   const list = getSlctr('.repo-list');
+  const searchField = getSlctr('.search__field');
 
   let arrRepo = [];
   let error;
@@ -33,12 +34,9 @@ window.onload = function () {
     }
 
     inputField.value = '';
-    inputField.style.width = '260px'
+    inputField.style.width = '260px';
     renderRepositories();
   }
-
-
-
 
   function getCorrectDate(d) {
     return new Date(d).toLocaleString('ru', {
