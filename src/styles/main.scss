@@ -131,7 +131,7 @@ main {
 // Repositories
 .search {
   &__field {
-    @include border($dark, 4px);
+    @include border($dark, 12px);
     padding: 6px 10px 6px 12px;
   }
   &__input {
