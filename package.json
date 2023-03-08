@@ -7,7 +7,6 @@
   "devDependencies": {
     "css-loader": "^6.5.1",
     "html-loader": "^3.1.0",
-    "mini-css-extract-plugin": "^2.5.2",
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
@@ -17,6 +16,7 @@
   },
   "dependencies": {
     "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.3",
     "normalize.css": "^8.0.1",
     "uuid": "^9.0.0"
   },
@@ -25,5 +25,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "��#\u0000 \u0000g\u0000i\u0000t\u0000r\u0000e\u0000p\u0000o\u0000-\u0000t\u0000e\u0000s\u0000t\u0000\r\u0000 \u0000"
+  "description": ""
 }

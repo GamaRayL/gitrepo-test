@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap');
+@import 'reset';
 
-// Переменные
 %flexCenter {
   display: flex;
   justify-content: center;
 }
 
+@mixin border($props, $radius) {
+  border: 1px solid $props;
+  border-radius: $radius;
+}
+
 // Цвета:
 $dark: #333333;
 $gray: #EFEFEF;
-$white: #FFFFFF;
 $black: #000000;
-$orange: #ffc508;
-$blue: #0044ff;
 
 // Толщина текста:
 $mediumW: 500;
@@ -25,34 +27,15 @@ $smallF14: 14px;
 // Семейство шрифтов:
 $noto: 'Noto Sans', sans-serif;
 
-ul {
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
+body {
+  font-family: $noto;
+  font-size: $smallF14;
+  color: $dark;
 }
 
 img {
   width: 100%;
   height: 100%;
-}
-
-.slash {
-  border: 1px solid black;
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-
-// Основа
-body {
-  font-family: $noto;
-  font-size: $smallF14;
-  color: $dark;
 }
 
 .wrapper {
@@ -61,10 +44,19 @@ body {
   padding: 15px;
 }
 
+.slash {
+  @include border($black, 4px);
+  padding: 2px 8px;
+}
+
 // Header
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: baseline;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   gap: 10px;
   &__title {
     text-transform: uppercase;
@@ -75,23 +67,47 @@ body {
     text-align: center;
     color: $dark;
     cursor: pointer;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
     transition: .2s;
 
     &:hover {
-      transform: scaleX(-1);
-      animation: zoom 0.3s ease-in-out;
+      -webkit-transform: scaleX(-1);
+          -ms-transform: scaleX(-1);
+              transform: scaleX(-1);
+      -webkit-animation: zoom 0.3s ease-in-out;
+              animation: zoom 0.3s ease-in-out;
     }
-    @keyframes zoom {
+    @-webkit-keyframes zoom {
       0% {
-       transform: scale(1);
+       -webkit-transform: scale(1);
+               transform: scale(1);
       }
 
       50% {
-       transform: scale(0.95);
+       -webkit-transform: scale(0.95);
+               transform: scale(0.95);
       }
 
       100% {
-       transform: scale(1);
+       -webkit-transform: scale(1);
+               transform: scale(1);
+      }
+     }
+    @keyframes zoom {
+      0% {
+       -webkit-transform: scale(1);
+               transform: scale(1);
+      }
+
+      50% {
+       -webkit-transform: scale(0.95);
+               transform: scale(0.95);
+      }
+
+      100% {
+       -webkit-transform: scale(1);
+               transform: scale(1);
       }
      }
   }
@@ -102,83 +118,129 @@ body {
 }
 
 // Main
-.main {
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 // Repositories
 .search {
   &__field {
-    border: 1px solid $dark;
-    border-radius: 10px;
+    @include border($dark, 4px);
     padding: 6px 10px 6px 12px;
   }
   &__input {
     border: none;
     outline: none;
     width: 260px;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
     transition: .4s;
- 
+
   }
   &__form {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 6px;
   }
   &__btn {
     background-color: transparent;
-    border: 1px solid $dark;
-    border-radius: 6px;
+    @include border($dark, 6px);
     cursor: pointer;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
     transition: .2s;
 
     &:hover {
-      animation: zoom 0.3s ease-in-out;
+      -webkit-animation: zoom 0.3s ease-in-out;
+              animation: zoom 0.3s ease-in-out;
     }
-    @keyframes zoom {
+    @-webkit-keyframes zoom {
       0% {
-       transform: scale(1);
+       -webkit-transform: scale(1);
+               transform: scale(1);
       }
       50% {
-       transform: scale(0.95);
+       -webkit-transform: scale(0.95);
+               transform: scale(0.95);
       }
 
       100% {
-       transform: scale(1);
+       -webkit-transform: scale(1);
+               transform: scale(1);
+      }
+     }
+    @keyframes zoom {
+      0% {
+       -webkit-transform: scale(1);
+               transform: scale(1);
+      }
+      50% {
+       -webkit-transform: scale(0.95);
+               transform: scale(0.95);
+      }
+
+      100% {
+       -webkit-transform: scale(1);
+               transform: scale(1);
       }
      }
     &:active {
-      transform: translateY(4px);
+      -webkit-transform: translateY(4px);
+          -ms-transform: translateY(4px);
+              transform: translateY(4px);
     }
   }
 }
 
 .repo-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 10px;
   &__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     gap: 10px;
   }
   &__description {
     padding-left: 22px;
   }
   &__footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding-left: 22px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     gap: 10px;
   }
   &__item {
     list-style-type: none;
     padding: 20px;
-    border: 1px solid $gray;
-    border-radius: 10px;
+    @include border($gray, 10px);
+    -webkit-transition: .2s;
+    -o-transition: .2s;
     transition: .2s;
     &:hover {
-      transform: translateX(10px);
+      -webkit-transform: translateX(10px);
+          -ms-transform: translateX(10px);
+              transform: translateX(10px);
     }
   }
   &__link {
@@ -186,6 +248,8 @@ body {
     font-size: 16px;
   }
   &__score {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 4px;
   }

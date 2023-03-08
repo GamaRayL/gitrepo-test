@@ -1,5 +1,6 @@
 import 'normalize.css';
 import './styles/main.scss';
+import { getCorrectDate } from './utils';
 
 const getSlctr = (cls) => document.querySelector(cls);
 
@@ -7,7 +8,6 @@ window.onload = function () {
   const form = getSlctr('.search__form');
   const inputField = getSlctr('.search__input');
   const list = getSlctr('.repo-list');
-  const searchField = getSlctr('.search__field');
 
   let arrRepo = [];
   let error;
@@ -35,15 +35,8 @@ window.onload = function () {
 
     inputField.value = '';
     inputField.style.width = '260px';
-    renderRepositories();
-  }
 
-  function getCorrectDate(d) {
-    return new Date(d).toLocaleString('ru', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
+    renderRepositories();
   }
 
   function renderRepositories() {
@@ -61,18 +54,18 @@ window.onload = function () {
       <li class="repo-list__item">
         <div class="repo-list__header">
           <i class="fa-solid fa-book-bookmark"></i>
-          <a class="repo-list__link" href="${repo.html_url}" target="_blank">${
-        repo.full_name
-      }</a>
+          <a class="repo-list__link" href="${repo.html_url}" target="_blank">
+            ${repo.full_name}
+          </a>
         </div>
         <p class="repo-list__description">${repo.description}</p>
         <div class="repo-list__footer">
-          <span class="repo-list__score"><i class="fa-regular fa-star"></i>${
-            repo.stargazers_count ? repo.stargazers_count : ''
-          }</span>
-          <span class="repo-list__create">Updated on ${getCorrectDate(
-            repo.updated_at
-          )}</span>
+          <span class="repo-list__score"><i class="fa-regular fa-star">
+            </i>${repo.stargazers_count ? repo.stargazers_count : ''}
+          </span>
+          <span class="repo-list__create">
+            Updated on ${getCorrectDate(repo.updated_at)}
+          </span>
         </div>
       </li>`;
       list.innerHTML = renderRepo;
