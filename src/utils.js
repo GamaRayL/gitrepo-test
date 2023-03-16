@@ -5,3 +5,9 @@ export function getCorrectDate(d) {
     day: 'numeric',
   });
 }
+
+export function createBlur() {
+  setTimeout(() => {
+    this.style.width = '260px';
+  }, 1000);
+}

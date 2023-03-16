@@ -157,7 +157,7 @@ main {
     -o-transition: .2s;
     transition: .2s;
 
-    &:hover {
+    &:active {
       -webkit-animation: zoom 0.3s ease-in-out;
               animation: zoom 0.3s ease-in-out;
     }
@@ -191,12 +191,23 @@ main {
                transform: scale(1);
       }
      }
-    &:active {
-      -webkit-transform: translateY(4px);
-          -ms-transform: translateY(4px);
-              transform: translateY(4px);
-    }
   }
+}
+
+.invalid {
+  border-color: rgb(209, 49, 49);
+}
+
+.hint {
+  position: fixed;
+  padding: 10px 20px;
+  border: 1px solid #b3c9ce;
+  border-radius: 4px;
+  text-align: center;
+  font: italic 14px/1.3 sans-serif;
+  color: #333;
+  background: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 .repo-list {

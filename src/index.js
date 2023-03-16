@@ -1,26 +1,58 @@
 import 'normalize.css';
 import './styles/main.scss';
-import { getCorrectDate } from './utils';
+import { getCorrectDate, createBlur } from './utils';
 
 const getSlctr = (cls) => document.querySelector(cls);
 
 window.onload = function () {
   const form = getSlctr('.search__form');
   const inputField = getSlctr('.search__input');
+  const searchField = getSlctr('.search__field');
   const list = getSlctr('.repo-list');
 
   let arrRepo = [];
   let error;
 
-  form.addEventListener('submit', getRepo);
-  inputField.addEventListener('focus', createFocus);
-
-  function createFocus() {
+  inputField.onfocus = function () {
     this.style.width = '400px';
-  }
 
-  async function getRepo(e) {
+    if (searchField.classList.contains('invalid')) {
+      let hint = document.querySelector('.hint');
+      searchField.classList.remove('invalid');
+      hint.remove();
+    }
+  };
+
+  inputField.onblur = createBlur;
+
+  form.onsubmit = async function getRepo(e) {
     e.preventDefault();
+
+    if (inputField.value.trim() === '') {
+      if (searchField.classList.contains('invalid')) {
+        let hint = document.querySelector('.hint');
+        searchField.classList.remove('invalid');
+        hint.remove();
+      }
+
+      searchField.classList.add('invalid');
+
+      let hint = document.createElement('div');
+      hint.classList.add('hint');
+      hint.innerHTML = 'Введите имя репозитория';
+      document.body.append(hint);
+
+      let hintCoords = {
+        top: Math.round(
+          searchField.getBoundingClientRect().top + hint.offsetHeight - 5
+        ),
+        left: Math.round(searchField.getBoundingClientRect().left),
+      };
+
+      hint.style.top = `${hintCoords.top}px`;
+      hint.style.left = `${hintCoords.left}px`;
+      return;
+    }
 
     const response = await fetch(
       `https://api.github.com/search/repositories?q=${inputField.value}&per_page=10`
@@ -35,9 +67,10 @@ window.onload = function () {
 
     inputField.value = '';
     inputField.style.width = '260px';
+    inputField.blur();
 
     renderRepositories();
-  }
+  };
 
   function renderRepositories() {
     let renderRepo = '';
