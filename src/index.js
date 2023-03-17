@@ -13,6 +13,7 @@ window.onload = function () {
   let arrRepo = [];
   let error;
 
+  // Добавить эффекты при фокусе на input
   inputField.onfocus = function () {
     this.style.width = '400px';
 
@@ -23,8 +24,10 @@ window.onload = function () {
     }
   };
 
+  // Убрать эффекты при потере фокуса
   inputField.onblur = createBlur;
 
+  // Отправить данные, запросить, обработать
   form.onsubmit = async function getRepo(e) {
     e.preventDefault();
 
@@ -72,6 +75,7 @@ window.onload = function () {
     renderRepositories();
   };
 
+  // Вывод репозиториев
   function renderRepositories() {
     let renderRepo = '';
 
